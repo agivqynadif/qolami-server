@@ -3,12 +3,14 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 require('dotenv').config();
 const port = 5000 || process.env.PORT;
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan('tiny'));
 require('./src/routers/routes.js')(app);
 
 mongoose
