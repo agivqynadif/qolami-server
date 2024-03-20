@@ -5,24 +5,18 @@ exports.authJwt = (req, res, next) => {
   const token = req.headers['authorization'];
 
   if (!token) {
-    return res.status(403).json({ error: 'Token tidak tersedia!' });
+    return res.status(403).json({ error: 'Akses ditolak!' });
   }
 
-  jwt.verify(token, process.env.SECRET, async (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ error: 'Gagal untuk authentikasi token!' });
-    }
+  // if (err) {
+  //   return res.status(401).json({ error: 'Gagal untuk authentikasi token!' });
+  // }
 
-    try {
-      let user = await User.findById(decoded.id);
-      if (!user) {
-        res.status(404).json({ error: 'User tidak ditemukan!' });
-      }
-
-      req.user = user;
-      next();
-    } catch (error) {
-      return res.status(500).json({ error: 'Internal server error' });
-    }
-  });
+  try {
+    const verify = jwt.verify(token, process.env.SECRET);
+    req.user = verify;
+    next();
+  } catch (error) {
+    return res.status(500).json({ error: 'Terjadi error pada server' });
+  }
 };

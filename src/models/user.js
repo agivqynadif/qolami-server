@@ -10,7 +10,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  profileName: String,
+  profileName: {
+    type: String,
+    default: 'Ilhamian',
+  },
 });
 
 exports.User = mongoose.model('User', userSchema);
