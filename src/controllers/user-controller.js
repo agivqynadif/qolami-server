@@ -1,7 +1,7 @@
 const { User } = require('../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const verifyToken = require('../middlewares/jwt-auth');
+const bcryptSalt = process.env.BCRYPT_SALT;
 
 exports.registerUser = async (req, res) => {
   const { username, password } = req.body;
@@ -12,7 +12,7 @@ exports.registerUser = async (req, res) => {
 
   let user = new User({
     username: username,
-    password: bcrypt.hashSync(password, 8),
+    password: bcrypt.hashSync(password, Number(bcryptSalt)),
   });
   try {
     user = await user.save();
@@ -62,7 +62,7 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-exports.resetPassword = async (req, res) => {
+exports.forgotPassword = async (req, res) => {
   const { username, newPassword } = req.body;
 
   try {
@@ -71,7 +71,7 @@ exports.resetPassword = async (req, res) => {
       return res.status(404).json({ error: 'Username tidak ditemukan!' });
     }
 
-    user = await User.updateOne({ username }, { $set: { password: bcrypt.hashSync(newPassword, 8) } });
+    user = await User.updateOne({ username }, { $set: { password: bcrypt.hashSync(newPassword, Number(bcryptSalt)) } });
 
     res.status(200).json({ message: 'Password berhasil diubah!' });
   } catch (error) {
