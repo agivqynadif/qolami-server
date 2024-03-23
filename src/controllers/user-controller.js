@@ -63,12 +63,16 @@ exports.loginUser = async (req, res) => {
 };
 
 exports.forgotPassword = async (req, res) => {
-  const { username, newPassword } = req.body;
+  const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
     let user = await User.findOne({ username });
     if (!user) {
       return res.status(404).json({ error: 'Username tidak ditemukan!' });
+    }
+
+    if (newPassword !== repeatNewPassword) {
+      return res.status(401).json({ error: 'Password tidak sama!' });
     }
 
     user = await User.updateOne({ username }, { $set: { password: bcrypt.hashSync(newPassword, Number(bcryptSalt)) } });
