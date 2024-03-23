@@ -81,16 +81,15 @@ exports.resetPassword = async (req, res) => {
 };
 
 exports.updateProfileName = async (req, res) => {
-  const { profileName } = req.body;
+  const id = req.params.id;
+  const profileName = req.body;
+  const options = { new: true };
   try {
-    if (req.params.id !== req.user.id.toString()) {
-      return res.json({ error: 'Id tidak sesuai!' });
-    }
-
-    const updateProfileName = await User.findByIdAndUpdate(req.params.id, {
-      $set: { profileName: profileName },
+    const user = await User.findByIdAndUpdate(id, profileName, options);
+    res.status(200).json({
+      message: 'Profie name berhasil diupdate!',
+      data: user,
     });
-    res.status(200).json({ message: 'Profie name berhasil diupdate!' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });

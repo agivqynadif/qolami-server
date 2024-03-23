@@ -8,10 +8,6 @@ exports.authJwt = (req, res, next) => {
     return res.status(403).json({ error: 'Akses ditolak!' });
   }
 
-  // if (err) {
-  //   return res.status(401).json({ error: 'Gagal untuk authentikasi token!' });
-  // }
-
   try {
     const verify = jwt.verify(token, process.env.SECRET);
     req.user = verify;
