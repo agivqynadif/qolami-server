@@ -4,7 +4,7 @@ exports.checkDuplicateUsername = async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.body.username });
     if (user) {
-      return res.status(400).send({ error: 'Username sudah digunakan!' });
+      return res.status(409).send({ message: 'Username sudah digunakan!' });
     }
     next();
   } catch (error) {

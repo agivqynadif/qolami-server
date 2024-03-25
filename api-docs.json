@@ -1,0 +1,257 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Qolami API Documentation",
+    "description": "Halaman ini berisi dokumentasi API dari aplikasi Qolami yang dibuat dengan Express dan didokumentasikan dengan Swagger",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api/v1",
+      "description": "Development server"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Register pengguna baru",
+        "description": "User melakukan register dengan username dan password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "sofun1",
+                    "description": "Username yang digunakan user"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "sofun123",
+                    "description": "Password untuk akun user"
+                  }
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Registrasi berhasil",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Registrasi berhasil!",
+                      "description": "Pesan ketika user berhasil melakukan registrasi"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data registrasi user",
+                      "properties": {
+                        "username": {
+                          "type": "string",
+                          "example": "sofun1",
+                          "description": "Username yang didaftarkan"
+                        },
+                        "password": {
+                          "type": "object",
+                          "example": "$2b$10$ljZJHoo2IfMWf/OvWsRZnOT793jLzQrc5sUT1CQiyLvfNiTSu1rze",
+                          "description": "Password untuk akun user"
+                        },
+                        "profileName": {
+                          "type": "string",
+                          "example": "Ilhamian",
+                          "description": "Ilhamian adalah profile name default untuk setiap user"
+                        },
+                        "_id": {
+                          "type": "object",
+                          "example": "65fea414ba8caa60249a273e",
+                          "description": "Mongodb ID user"
+                        },
+                        "__v": {
+                          "type": "number",
+                          "example": 0,
+                          "description": "Mongodb version key"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User menggunakan spasi pada username",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Username tidak boleh menggunakan spasi!",
+                      "description": "Pesan error karena user menggunakan spasi pada username"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Username sudah digunakan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Username sudah digunakan!",
+                      "description": "Pesan error karena username sudah terdaftar"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Login user",
+        "description": "User melakukan login dengan username dan password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "sofun1",
+                    "description": "Username yang digunakan user"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "sofun123",
+                    "description": "Password untuk akun user"
+                  }
+                },
+                "required": ["username", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login berhasil",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Login berhasil!",
+                      "description": "Pesan ketika user berhasil melakukan login"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data login user",
+                      "properties": {
+                        "token": {
+                          "type": "object",
+                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTQxNGJhOGNhYTYwMjQ5YTI3M2UiLCJ1c2VybmFtZSI6InNvZnVuMSIsImlhdCI6MTcxMTI1NDMxNH0.jH8tJTB6F6ljx3uiBaavMR-9jdfrHZgoel4gXA_S4GA"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Username tidak ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Username tidak ditemukan!",
+                      "description": "Pesan error karena username tidak ditemukan"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Password salah",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Password salah!",
+                      "description": "Pesan error karena password salah"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
