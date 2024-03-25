@@ -252,6 +252,111 @@
           }
         }
       }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Forgot password",
+        "description": "User dapat mengganti passwordnya apabila lupa",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "sofun1",
+                    "description": "Username yang digunakan user"
+                  },
+                  "newPassword": {
+                    "type": "string",
+                    "example": "sofun12345",
+                    "description": "Password baru user"
+                  },
+                  "repeatNewPassword": {
+                    "type": "string",
+                    "example": "sofun12345",
+                    "description": "User mengetik ulang password baru agar berhasil merubah password"
+                  }
+                },
+                "required": ["username", "newPassword", "repeatNewPassword"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password berhasil diubah",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Password berhasil diubah!",
+                      "description": "Pesan ketika user berhasil mengganti password"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Password tidak sama dengan password baru",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Password tidak sama!",
+                      "description": "Pesan error karena password yang dimasukkan tidak sama"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Username tidak ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Username tidak ditemukan!",
+                      "description": "Pesan error karena username tidak ditemukan"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

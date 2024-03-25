@@ -78,11 +78,11 @@ exports.forgotPassword = async (req, res) => {
   try {
     let user = await User.findOne({ username });
     if (!user) {
-      return res.status(404).json({ error: 'Username tidak ditemukan!' });
+      return res.status(404).json({ message: 'Username tidak ditemukan!' });
     }
 
     if (newPassword !== repeatNewPassword) {
-      return res.status(401).json({ error: 'Password tidak sama!' });
+      return res.status(401).json({ message: 'Password tidak sama!' });
     }
 
     user = await User.updateOne({ username }, { $set: { password: bcrypt.hashSync(newPassword, Number(bcryptSalt)) } });
