@@ -18,16 +18,17 @@ app.use(morgan('tiny'));
 
 const apiDoc = require('./api-docs.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
-app.use(`${API_URL}/auth/register`, userRoutes);
-app.use(`${API_URL}/auth/login`, userRoutes);
-app.use(`${API_URL}/auth/forgot-password`, userRoutes);
+app.use('/api/v1/auth/register', userRoutes);
+app.use('/api/v1/auth/login', userRoutes);
+app.use('/api/v1/auth/forgot-password', userRoutes);
 
-app.use(`${API_URL}/user/reset-password`, userRoutes);
-app.use(`${API_URL}/user/profile-name/:id`, userRoutes);
+app.use(`/api/v1/user/reset-password`, userRoutes);
+app.use(`/apiv1/user/profile-name/:id`, userRoutes);
 
-app.use(`${API_URL}/user/score/:userId`, scoreRoutes);
-app.use(`${API_URL}/user/reset-password`, scoreRoutes);
-app.use(`${API_URL}/users`, scoreRoutes);
+app.use('/api/v1/user/score/:userId', scoreRoutes);
+app.use('/api/v1/user/reset-password', scoreRoutes);
+
+app.use('/api/v1/users', userRoutes);
 
 app.use('/', (req, res) => {
   res.send('Welcome to Qolami API');
