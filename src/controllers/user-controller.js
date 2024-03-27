@@ -7,7 +7,7 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, profileName } = req.body;
 
   if (username.includes(' ')) {
     return res.status(400).json({ message: 'Username tidak boleh menggunakan spasi!' });
@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
   let user = new User({
     username: username,
     password: bcrypt.hashSync(password, Number(bcryptSalt)),
+    profileName: profileName,
   });
 
   try {

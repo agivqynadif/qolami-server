@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
   },
   profileName: {
     type: String,
-    default: 'Ilhamian',
+    required: true,
   },
 });
 

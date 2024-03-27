@@ -23,7 +23,7 @@ app.use('/api/v1/auth/login', userRoutes);
 app.use('/api/v1/auth/forgot-password', userRoutes);
 
 app.use(`/api/v1/user/reset-password`, userRoutes);
-app.use(`/apiv1/user/profile-name/:id`, userRoutes);
+app.use(`/api/v1/user/profile-name/:id`, userRoutes);
 
 app.use('/api/v1/user/score/:userId', scoreRoutes);
 app.use('/api/v1/user/reset-password', scoreRoutes);
