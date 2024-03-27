@@ -6,7 +6,7 @@ const bcryptSalt = process.env.BCRYPT_SALT;
 const express = require('express');
 const router = express.Router();
 
-router.post(`/`, async (req, res) => {
+router.post('/', async (req, res) => {
   const { username, password } = req.body;
 
   if (username.includes(' ')) {
@@ -40,7 +40,7 @@ router.post(`/`, async (req, res) => {
   }
 });
 
-router.post(`/`, async (req, res) => {
+router.post('/', async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -74,7 +74,7 @@ router.post(`/`, async (req, res) => {
   }
 });
 
-router.put(`/`, async (req, res) => {
+router.put('/', async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
@@ -96,7 +96,7 @@ router.put(`/`, async (req, res) => {
   }
 });
 
-router.put(`/`, async (req, res) => {
+router.put('/', async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
@@ -118,7 +118,7 @@ router.put(`/`, async (req, res) => {
   }
 });
 
-router.put(`/:id`, async (req, res) => {
+router.put('/:id', async (req, res) => {
   const id = req.params.id;
   const profileName = req.body;
   const options = { new: true };
@@ -134,7 +134,7 @@ router.put(`/:id`, async (req, res) => {
   }
 });
 
-router.get(`/`, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const user = await User.find({});
     res.json({
@@ -148,3 +148,5 @@ router.get(`/`, async (req, res) => {
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
 });
+
+module.exports = router;
