@@ -11,5 +11,6 @@ module.exports = function (app) {
   app.put(`${process.env.API_URL}/user/reset-password`, verifyToken.authJwt, userController.resetPassword);
   app.put(`${process.env.API_URL}/user/profile-name/:id`, userController.updateProfileName);
   app.patch(`${process.env.API_URL}/user/score/:userId`, scoreController.updateScore);
+  app.get(`${process.env.API_URL}/user/score/:userId`, verifyToken.authJwt, scoreController.getUserScore);
   app.get(`${process.env.API_URL}/users`, verifyToken.authJwt, userController.getUserData);
 };

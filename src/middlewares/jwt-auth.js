@@ -12,9 +12,9 @@ exports.authJwt = (req, res, next) => {
     const verify = jwt.verify(token, process.env.SECRET);
     req.user = verify;
 
-    if (req.params.userId && req.params.userId !== req.user.userId) {
-      return res.status(403).json({ error: 'Token tidak valid!' });
-    }
+    // if (req.params.userId && req.params.userId !== req.user.userId) {
+    //   return res.status(403).json({ error: 'Token tidak valid!' });
+    // }
 
     next();
   } catch (error) {
