@@ -23,9 +23,9 @@ app.use('/api/v1/auth/login', userRoutes);
 app.use('/api/v1/auth/forgot-password', userRoutes);
 
 app.use('/api/v1/user/reset-password', userRoutes);
-app.use('/api/v1/user/profile-name/', userRoutes);
+app.use('/api/v1/user/profile-name', userRoutes);
 
-app.use('/api/v1/user/score/', scoreRoutes);
+app.use('/api/v1/user/score', scoreRoutes);
 app.use('/api/v1/user/reset-password', scoreRoutes);
 
 app.use('/api/v1/users', userRoutes);
