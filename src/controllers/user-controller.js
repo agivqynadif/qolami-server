@@ -3,8 +3,9 @@ const { Score } = require('../models/score');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const bcryptSalt = process.env.BCRYPT_SALT;
+const router = express.Router();
 
-exports.registerUser = async (req, res) => {
+router.post(`/`, async (req, res) => {
   const { username, password } = req.body;
 
   if (username.includes(' ')) {
@@ -36,9 +37,9 @@ exports.registerUser = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-};
+});
 
-exports.loginUser = async (req, res) => {
+router.post(`/`, async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -70,9 +71,9 @@ exports.loginUser = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-};
+});
 
-exports.forgotPassword = async (req, res) => {
+router.put(`/`, async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
@@ -92,9 +93,9 @@ exports.forgotPassword = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-};
+});
 
-exports.resetPassword = async (req, res) => {
+router.put(`/`, async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
@@ -114,9 +115,9 @@ exports.resetPassword = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-};
+});
 
-exports.updateProfileName = async (req, res) => {
+router.put(`/:id`, async (req, res) => {
   const id = req.params.id;
   const profileName = req.body;
   const options = { new: true };
@@ -130,9 +131,9 @@ exports.updateProfileName = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-};
+});
 
-exports.getUserData = async (req, res) => {
+router.get(`/`, async (req, res) => {
   try {
     const user = await User.find({});
     res.json({
@@ -145,4 +146,4 @@ exports.getUserData = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-};
+});

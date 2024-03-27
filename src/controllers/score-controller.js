@@ -1,7 +1,8 @@
 const { ObjectId } = require('mongodb');
 const { Score } = require('../models/score');
+const router = express.Router();
 
-exports.updateScore = async (req, res) => {
+router.patch(`/:userId`, async (req, res) => {
   const userId = req.params.userId;
   const updates = req.body;
   const options = { new: true };
@@ -15,9 +16,9 @@ exports.updateScore = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-};
+});
 
-exports.getUserScore = async (req, res) => {
+router.get(`/:userId`, async (req, res) => {
   const userId = req.params.userId;
   try {
     const score = await Score.findOne({ userId }).populate('userId', 'username');
@@ -31,4 +32,4 @@ exports.getUserScore = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-};
+});
