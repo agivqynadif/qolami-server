@@ -1,5 +1,6 @@
 const { ObjectId } = require('mongodb');
 const { Score } = require('../models/score');
+const express = require('express');
 const router = express.Router();
 
 router.patch(`/:userId`, async (req, res) => {

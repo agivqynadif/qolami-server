@@ -3,6 +3,7 @@ const { Score } = require('../models/score');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const bcryptSalt = process.env.BCRYPT_SALT;
+const express = require('express');
 const router = express.Router();
 
 router.post(`/`, async (req, res) => {
