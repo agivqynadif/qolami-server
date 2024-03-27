@@ -15,7 +15,9 @@ app.use(morgan('tiny'));
 
 const apiDoc = require('./api-docs.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
-
+app.use('/', (req, res) => {
+  res.send('Welcome to Qolami API');
+});
 require('./src/routers/routes.js')(app);
 
 mongoose
