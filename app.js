@@ -30,9 +30,9 @@ app.use('/api/v1/user/reset-password', scoreRoutes);
 
 app.use('/api/v1/users', userRoutes);
 
-app.use('/', (req, res) => {
-  res.send('Welcome to Qolami API');
-});
+// app.use('/', (req, res) => {
+//   res.send('Welcome to Qolami API');
+// });
 
 // require('./src/routers/routes.js')(app);
 
