@@ -101,7 +101,7 @@ router.put('/forgot-password', async (req, res) => {
   }
 });
 
-router.put('/user/reset-password', async (req, res) => {
+router.put('/reset-password', async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
