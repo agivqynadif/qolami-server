@@ -7,7 +7,6 @@ const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 const port = 5000 || process.env.PORT;
-const API_URL = process.env.API_URL;
 const userRoutes = require('./src/controllers/user-controller.js');
 const scoreRoutes = require('./src/controllers/score-controller.js');
 
@@ -23,6 +22,7 @@ app.use('/api/v1/auth', userRoutes);
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/user', scoreRoutes);
 
+app.use('/api/v1', userRoutes);
 // app.use('/', (req, res) => {
 //   res.send('Welcome to Qolami API');
 // });
