@@ -1,8 +1,6 @@
 const { Score } = require('../models/score');
-const express = require('express');
-const router = express.Router();
 
-router.patch('/score/:userId', async (req, res) => {
+exports.updateScore = async (req, res) => {
   const userId = req.params.userId;
   const updates = req.body;
   const options = { new: true };
@@ -16,9 +14,9 @@ router.patch('/score/:userId', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-});
+};
 
-router.get('/score/:userId', async (req, res) => {
+exports.getScore = async (req, res) => {
   const userId = req.params.userId;
   try {
     const score = await Score.findOne({ userId }).populate('userId', 'username');
@@ -32,6 +30,4 @@ router.get('/score/:userId', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Terjadi error pada server' });
   }
-});
-
-module.exports = router;
+};
