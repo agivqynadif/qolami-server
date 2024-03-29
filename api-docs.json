@@ -7,8 +7,10 @@
   },
   "servers": [
     {
-      "url": "https://qolami-server-production.up.railway.app/api/v1",
-      "description": "Development server"
+      "url": "https://qolami-server-production.up.railway.app/api/v1"
+    },
+    {
+      "url": "http://localhost:5000/api/v1"
     }
   ],
   "paths": {
