@@ -470,7 +470,7 @@
         }
       }
     },
-    "/user/profile-name/:id": {
+    "/user/profile-name/{id}": {
       "put": {
         "tags": ["User"],
         "summary": "Ubah nama profile user",
@@ -482,18 +482,13 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "id": {
-                    "type": "object",
-                    "example": "6600ee6604a97571c171d274",
-                    "description": "Id user"
-                  },
                   "profileName": {
                     "type": "string",
                     "example": "sofunsantun",
                     "description": "Profile name yang diinginkan"
                   }
                 },
-                "required": ["id", "profileName"]
+                "required": ["profileName"]
               }
             }
           }
