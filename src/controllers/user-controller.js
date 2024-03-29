@@ -6,11 +6,15 @@ const bcryptSalt = process.env.BCRYPT_SALT;
 const express = require('express');
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
   const { username, password, profileName } = req.body;
 
   if (username.includes(' ')) {
     return res.status(400).json({ message: 'Username tidak boleh menggunakan spasi!' });
+  }
+
+  if (!username || !password || !profileName) {
+    return res.status(400).json({ message: 'Username, password, dan profile name tidak boleh kosong!' });
   }
 
   let user = new User({
@@ -41,7 +45,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -75,7 +79,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.put('/', async (req, res) => {
+router.put('/forgot-password', async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
@@ -97,7 +101,7 @@ router.put('/', async (req, res) => {
   }
 });
 
-router.put('/', async (req, res) => {
+router.put('/user/reset-password', async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
@@ -119,7 +123,7 @@ router.put('/', async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/profile-name/:id', async (req, res) => {
   const id = req.params.id;
   const profileName = req.body;
   const options = { new: true };
@@ -135,7 +139,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
+router.get('/users', async (req, res) => {
   try {
     const user = await User.find({});
     res.json({

@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5000/api/v1",
+      "url": "https://qolami-server-production.up.railway.app/api/v1",
       "description": "Development server"
     }
   ],
@@ -33,9 +33,14 @@
                     "type": "string",
                     "example": "sofun123",
                     "description": "Password untuk akun user"
+                  },
+                  "profileName": {
+                    "type": "string",
+                    "example": "Tim Sofun",
+                    "description": "Profile name user"
                   }
                 },
-                "required": ["username", "password"]
+                "required": ["username", "password", "profileName"]
               }
             }
           }
