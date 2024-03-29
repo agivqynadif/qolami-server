@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 require('dotenv').config();
 const port = 5000 || process.env.PORT;
-const userRoutes = require('./src/controllers/user-controller.js');
+const userRoutes = require('./src/routers/user-routes.js');
 const scoreRoutes = require('./src/controllers/score-controller.js');
 
 app.use(cors());

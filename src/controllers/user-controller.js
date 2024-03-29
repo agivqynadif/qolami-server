@@ -3,10 +3,8 @@ const { Score } = require('../models/score');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const bcryptSalt = process.env.BCRYPT_SALT;
-const express = require('express');
-const router = express.Router();
 
-router.post('/register', async (req, res) => {
+exports.registerUser = async (req, res) => {
   const { username, password, profileName } = req.body;
 
   if (username.includes(' ')) {
@@ -53,9 +51,9 @@ router.post('/register', async (req, res) => {
       message: 'Terjadi error pada server',
     });
   }
-});
+};
 
-router.post('/login', async (req, res) => {
+exports.loginUser = async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -97,9 +95,9 @@ router.post('/login', async (req, res) => {
       message: 'Terjadi error pada server',
     });
   }
-});
+};
 
-router.put('/forgot-password', async (req, res) => {
+exports.forgotPassword = async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
@@ -131,9 +129,9 @@ router.put('/forgot-password', async (req, res) => {
       message: 'Terjadi error pada server',
     });
   }
-});
+};
 
-router.put('/reset-password', async (req, res) => {
+exports.resetPassword = async (req, res) => {
   const { username, newPassword, repeatNewPassword } = req.body;
 
   try {
@@ -165,9 +163,9 @@ router.put('/reset-password', async (req, res) => {
       message: 'Terjadi error pada server',
     });
   }
-});
+};
 
-router.put('/profile-name/:id', async (req, res) => {
+exports.changeProfileName = async (req, res) => {
   const id = req.params.id;
   const profileName = req.body;
   const options = { new: true };
@@ -184,9 +182,9 @@ router.put('/profile-name/:id', async (req, res) => {
       message: 'Terjadi error pada server',
     });
   }
-});
+};
 
-router.get('/users', async (req, res) => {
+exports.getUser = async (req, res) => {
   try {
     const user = await User.find({});
     res.json({
@@ -203,6 +201,4 @@ router.get('/users', async (req, res) => {
       message: 'Terjadi error pada server',
     });
   }
-});
-
-module.exports = router;
+};
