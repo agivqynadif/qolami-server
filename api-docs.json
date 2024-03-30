@@ -151,7 +151,7 @@
                   "properties": {
                     "status": {
                       "type": "string",
-                      "example": "Gagal"
+                      "example": "Error"
                     },
                     "message": {
                       "type": "string",
@@ -277,7 +277,7 @@
                   "properties": {
                     "status": {
                       "type": "string",
-                      "example": "Gagal"
+                      "example": "Error"
                     },
                     "message": {
                       "type": "string",
@@ -398,7 +398,7 @@
                   "properties": {
                     "status": {
                       "type": "string",
-                      "example": "Gagal"
+                      "example": "Error"
                     },
                     "message": {
                       "type": "string",
@@ -519,7 +519,7 @@
                   "properties": {
                     "status": {
                       "type": "string",
-                      "example": "Gagal"
+                      "example": "Error"
                     },
                     "message": {
                       "type": "string",
@@ -598,7 +598,7 @@
                   "properties": {
                     "status": {
                       "type": "string",
-                      "example": "Gagal"
+                      "example": "Error"
                     },
                     "message": {
                       "type": "string",
@@ -707,7 +707,7 @@
                   "properties": {
                     "status": {
                       "type": "string",
-                      "example": "Gagal"
+                      "example": "Error"
                     },
                     "message": {
                       "type": "string",
@@ -814,7 +814,7 @@
                   "properties": {
                     "status": {
                       "type": "string",
-                      "example": "Gagal"
+                      "example": "Error"
                     },
                     "message": {
                       "type": "string",
