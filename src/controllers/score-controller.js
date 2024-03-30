@@ -7,12 +7,16 @@ exports.updateScore = async (req, res) => {
   try {
     const score = await Score.findOneAndUpdate({ userId: userId }, updates, options);
     res.status(200).json({
+      status: 'Sukses',
       message: 'Score berhasil diupdate!',
       data: score,
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Terjadi error pada server' });
+    res.status(500).json({
+      status: 'Error',
+      message: 'Terjadi error pada server',
+    });
   }
 };
 
@@ -21,6 +25,7 @@ exports.getScore = async (req, res) => {
   try {
     const score = await Score.findOne({ userId }).populate('userId', 'username');
     res.status(200).json({
+      status: 'Sukses',
       message: 'Berhasil mendapatkan data score user!',
       data: {
         score,
@@ -28,6 +33,9 @@ exports.getScore = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Terjadi error pada server' });
+    res.status(500).json({
+      status: 'Error',
+      message: 'Terjadi error pada server',
+    });
   }
 };
