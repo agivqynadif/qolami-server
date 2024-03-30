@@ -55,6 +55,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Registrasi berhasil!",
@@ -76,12 +80,12 @@
                         },
                         "profileName": {
                           "type": "string",
-                          "example": "Ilhamian",
-                          "description": "Ilhamian adalah profile name default untuk setiap user"
+                          "example": "Tim Sofun",
+                          "description": "Profile name user"
                         },
                         "_id": {
                           "type": "object",
-                          "example": "65fea414ba8caa60249a273e",
+                          "example": "6600ee6604a97571c171d274",
                           "description": "Mongodb ID user"
                         },
                         "__v": {
@@ -103,6 +107,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Username tidak boleh menggunakan spasi!",
@@ -120,6 +128,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Username sudah digunakan!",
@@ -137,7 +149,11 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "error": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
+                    "message": {
                       "type": "string",
                       "example": "Terjadi error pada server",
                       "description": "Pesan error karena terjadi error pada server"
@@ -186,6 +202,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Login berhasil!",
@@ -213,6 +233,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Username tidak ditemukan!",
@@ -230,6 +254,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Password salah!",
@@ -247,7 +275,11 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "error": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
+                    "message": {
                       "type": "string",
                       "example": "Terjadi error pada server",
                       "description": "Pesan error karena terjadi error pada server"
@@ -301,6 +333,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Password berhasil diubah!",
@@ -318,6 +354,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Password tidak sama!",
@@ -335,6 +375,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Username tidak ditemukan!",
@@ -352,7 +396,11 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "error": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
+                    "message": {
                       "type": "string",
                       "example": "Terjadi error pada server",
                       "description": "Pesan error karena terjadi error pada server"
@@ -406,6 +454,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Password berhasil diubah!",
@@ -423,6 +475,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Password tidak sama!",
@@ -440,6 +496,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
                     "message": {
                       "type": "string",
                       "example": "Username tidak ditemukan!",
@@ -457,7 +517,11 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "error": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
+                    "message": {
                       "type": "string",
                       "example": "Terjadi error pada server",
                       "description": "Pesan error karena terjadi error pada server"
@@ -471,7 +535,17 @@
       }
     },
     "/user/profile-name/{id}": {
-      "put": {
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "tags": ["User"],
         "summary": "Ubah nama profile user",
         "description": "User dapat mengganti profile name sesuai keinginan",
@@ -484,7 +558,7 @@
                 "properties": {
                   "profileName": {
                     "type": "string",
-                    "example": "sofunsantun",
+                    "example": "Team Sofun",
                     "description": "Profile name yang diinginkan"
                   }
                 },
@@ -495,50 +569,20 @@
         },
         "responses": {
           "200": {
-            "description": "Password berhasil diubah",
+            "description": "Profile name berhasil diubah",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
                     "message": {
                       "type": "string",
-                      "example": "Password berhasil diubah!",
-                      "description": "Pesan ketika user berhasil mengganti password"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Password tidak sama dengan password baru",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Password tidak sama!",
-                      "description": "Pesan error karena password yang dimasukkan tidak sama"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Username tidak ditemukan",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Username tidak ditemukan!",
-                      "description": "Pesan error karena username tidak ditemukan"
+                      "example": "Profie name berhasil diupdate!",
+                      "description": "Pesan ketika user berhasil mengganti profile name"
                     }
                   }
                 }
@@ -552,7 +596,227 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "error": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/score/{userId}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "tags": ["User Score"],
+        "summary": "Mengambil score user",
+        "description": "Mengambil data score user",
+        "responses": {
+          "200": {
+            "description": "Berhasil mengambil data score user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan data score user!",
+                      "description": "Pesan ketika user berhasil mendapatkan score user"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data score user",
+                      "properties": {
+                        "score": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "6600ee6704a97571c171d276"
+                            },
+                            "userId": {
+                              "type": "object",
+                              "properties": {
+                                "_id": {
+                                  "type": "object",
+                                  "example": "6600ee6604a97571c171d274"
+                                },
+                                "_username": {
+                                  "type": "string",
+                                  "example": "sofun1"
+                                }
+                              }
+                            },
+                            "scoreHijaiyah": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "scoreFathah": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "scoreKasrah": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "scoreDhammah": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "tags": ["User Score"],
+        "summary": "Update score user",
+        "description": "Update data score user",
+        "responses": {
+          "200": {
+            "description": "Berhasil mengupdate data score user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Score berhasil diupdate!",
+                      "description": "Pesan ketika berhasil mengupdate score user"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data score user",
+                      "properties": {
+                        "score": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "6600ee6704a97571c171d276"
+                            },
+                            "userId": {
+                              "type": "object",
+                              "properties": {
+                                "_id": {
+                                  "type": "object",
+                                  "example": "6600ee6604a97571c171d274"
+                                },
+                                "_username": {
+                                  "type": "string",
+                                  "example": "sofun1"
+                                }
+                              }
+                            },
+                            "scoreHijaiyah": {
+                              "type": "number",
+                              "example": 100
+                            },
+                            "scoreFathah": {
+                              "type": "number",
+                              "example": 100
+                            },
+                            "scoreKasrah": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "scoreDhammah": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
+                    "message": {
                       "type": "string",
                       "example": "Terjadi error pada server",
                       "description": "Pesan error karena terjadi error pada server"
