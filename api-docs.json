@@ -534,6 +534,117 @@
         }
       }
     },
+    "/user/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "tags": ["User"],
+        "summary": "Mendapatkan data user berdasarkan id",
+        "description": "Data yang dimiliki user seperti username dan profile name",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan data user!",
+                      "description": "Pesan ketika berhasil mendapatkan data user berdasarkan id"
+                    },
+                    "data": {
+                      "properties": {
+                        "user": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "660f040c7394061fcbb042f0"
+                            },
+                            "username": {
+                              "type": "string",
+                              "example": "herupra"
+                            },
+                            "password": {
+                              "type": "string",
+                              "example": "$2b$10$PeAwiwIngz1FA.9UwcAZFu61YX56IHYw1lK/PabEn7vBb7hEdVYZ2"
+                            },
+                            "profileName": {
+                              "type": "string",
+                              "example": "heru123"
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User tidak ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Gagal"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "User tidak ditemukan!",
+                      "description": "User id tidak ditemukan"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/user/profile-name/{id}": {
       "patch": {
         "parameters": [
@@ -735,6 +846,53 @@
         "tags": ["User Score"],
         "summary": "Update score user",
         "description": "Update data score user",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "scoreHijaiyah.scoreImage": {
+                    "type": "number"
+                  },
+                  "scoreHijaiyah.scoreVideo": {
+                    "type": "number"
+                  },
+                  "scoreHijaiyah.scoreAudio": {
+                    "type": "number"
+                  },
+                  "scoreFathah.scoreImage": {
+                    "type": "number"
+                  },
+                  "scoreFathah.scoreVideo": {
+                    "type": "number"
+                  },
+                  "scoreFathah.scoreAudio": {
+                    "type": "number"
+                  },
+                  "scoreKasrah.scoreImage": {
+                    "type": "number"
+                  },
+                  "scoreKasrah.scoreVideo": {
+                    "type": "number"
+                  },
+                  "scoreKasrah.scoreAudio": {
+                    "type": "number"
+                  },
+                  "scoreDhammah.scoreImage": {
+                    "type": "number"
+                  },
+                  "scoreDhammah.scoreVideo": {
+                    "type": "number"
+                  },
+                  "scoreDhammah.scoreAudio": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Berhasil mengupdate data score user",
@@ -756,45 +914,71 @@
                       "type": "object",
                       "description": "Data score user",
                       "properties": {
-                        "score": {
+                        "scoreHijaiyah": {
                           "type": "object",
                           "properties": {
-                            "_id": {
-                              "type": "object",
-                              "example": "6600ee6704a97571c171d276"
-                            },
-                            "userId": {
-                              "type": "object",
-                              "properties": {
-                                "_id": {
-                                  "type": "object",
-                                  "example": "6600ee6604a97571c171d274"
-                                },
-                                "_username": {
-                                  "type": "string",
-                                  "example": "sofun1"
-                                }
-                              }
-                            },
-                            "scoreHijaiyah": {
+                            "scoreImage": {
                               "type": "number",
                               "example": 100
                             },
-                            "scoreFathah": {
+                            "scoreVideo": {
                               "type": "number",
-                              "example": 100
+                              "example": 90
                             },
-                            "scoreKasrah": {
+                            "scoreAudio": {
+                              "type": "number",
+                              "example": 90
+                            }
+                          }
+                        },
+                        "scoreFathah": {
+                          "type": "object",
+                          "properties": {
+                            "scoreImage": {
                               "type": "number",
                               "example": null
                             },
-                            "scoreDhammah": {
+                            "scoreVideo": {
                               "type": "number",
                               "example": null
                             },
-                            "__v": {
+                            "scoreAudio": {
                               "type": "number",
-                              "example": 0
+                              "example": null
+                            }
+                          }
+                        },
+                        "scoreKasrah": {
+                          "type": "object",
+                          "properties": {
+                            "scoreImage": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "scoreVideo": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "scoreAudio": {
+                              "type": "number",
+                              "example": null
+                            }
+                          }
+                        },
+                        "scoreDhammah": {
+                          "type": "object",
+                          "properties": {
+                            "scoreImage": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "scoreVideo": {
+                              "type": "number",
+                              "example": null
+                            },
+                            "scoreAudio": {
+                              "type": "number",
+                              "example": null
                             }
                           }
                         }

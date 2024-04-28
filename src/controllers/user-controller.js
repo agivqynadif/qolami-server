@@ -203,7 +203,7 @@ exports.changeProfileName = async (req, res) => {
 exports.getUser = async (req, res) => {
   try {
     const user = await User.find({});
-    res.json({
+    res.status(200).json({
       status: 'Sukses',
       message: 'Berhasil mendapatkan data user!',
       data: {
@@ -225,13 +225,12 @@ exports.getUserById = async (req, res) => {
     const user = await User.findById({ _id: userId });
 
     if (!user) {
-      res.status(404).json({
+      return res.status(404).json({
         status: 'Gagal',
         message: 'User tidak ditemukan!',
-        data: user,
       });
     }
-    res.json({
+    res.status(200).json({
       status: 'Sukses',
       message: 'Berhasil mendapatkan data user!',
       data: {
