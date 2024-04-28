@@ -1,4 +1,4 @@
-const { registerUser, loginUser, forgotPassword, resetPassword, changeProfileName, getUser } = require('../controllers/user-controller');
+const { registerUser, loginUser, forgotPassword, resetPassword, changeProfileName, getUserById, getUser } = require('../controllers/user-controller');
 const verifyRegister = require('../middlewares/check-duplicate-username');
 const express = require('express');
 const router = express.Router();
@@ -8,6 +8,7 @@ router.post('/login', loginUser);
 router.put('/forgot-password', forgotPassword);
 router.put('/reset-password', resetPassword);
 router.patch('/profile-name/:id', changeProfileName);
+router.get('/:id', getUserById);
 router.get('/users', getUser);
 
 module.exports = router;
