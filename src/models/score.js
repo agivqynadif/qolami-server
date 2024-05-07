@@ -63,4 +63,8 @@ const scoreSchema = mongoose.Schema({
   },
 });
 
+scoreSchema.set('toJSON', {
+  virtuals: true,
+});
+
 exports.Score = mongoose.model('Score', scoreSchema);

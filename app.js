@@ -9,8 +9,10 @@ require('dotenv').config();
 const port = 5000 || process.env.PORT;
 const userRoutes = require('./src/routers/user-routes.js');
 const scoreRoutes = require('./src/routers/score-routes.js');
+const imageQuestionRoutes = require('./src/routers/image-question-routes.js');
 
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
@@ -18,10 +20,9 @@ app.use(morgan('tiny'));
 const apiDoc = require('./api-docs.json');
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
-app.use('/api/v1', userRoutes);
+app.use('/api/v1', userRoutes, imageQuestionRoutes);
 app.use('/api/v1/auth', userRoutes);
-app.use('/api/v1/user', userRoutes);
-app.use('/api/v1/user', scoreRoutes);
+app.use('/api/v1/user', userRoutes, scoreRoutes);
 
 // app.use('/', (req, res) => {
 //   res.send('Welcome to Qolami API');
