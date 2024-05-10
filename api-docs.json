@@ -737,11 +737,11 @@
           }
         ],
         "tags": ["User Score"],
-        "summary": "Mengambil score user",
-        "description": "Mengambil data score user",
+        "summary": "mendapatkan score user",
+        "description": "mendapatkan data score user",
         "responses": {
           "200": {
-            "description": "Berhasil mengambil data score user",
+            "description": "Berhasil mendapatkan data score user",
             "content": {
               "application/json": {
                 "schema": {
@@ -979,6 +979,410 @@
                             "scoreAudio": {
                               "type": "number",
                               "example": null
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/images-practice/hijaiyah": {
+      "get": {
+        "tags": ["Images Practice Questions"],
+        "summary": "mendapatkan soal latihan 1 huruf hijaiyah dengan opsi gambar",
+        "description": "Berisi 10 soal latihan 1 (huruf hijaiyah)",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Hijaiyah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 1"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 1",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Hijaiyah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Yang manakah huruf \"Syin\"?"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "https://drive.google.com/file/d/1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1qJjXf0Xquqr_ZzyPp4ACx-sgPAdgs0Jx/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1KPL7ecmNcbwEuHi9UyEcHsjNdyHWHBUG/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1UFQceu0z1qrZM3YASQzXhZnp9rWlDeFT/view?usp=drive_link"
+                              ]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 3
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/images-practice/fathah": {
+      "get": {
+        "tags": ["Images Practice Questions"],
+        "summary": "mendapatkan soal latihan 2 huruf berharakat fathah dengan opsi gambar",
+        "description": "Berisi 10 soal latihan 2 (huruf berharakat fathah)",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Berharakat Fathah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 2"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 2",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Hijaiyah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Yang manakah huruf \"Syin\"?"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "https://drive.google.com/file/d/1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1qJjXf0Xquqr_ZzyPp4ACx-sgPAdgs0Jx/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1KPL7ecmNcbwEuHi9UyEcHsjNdyHWHBUG/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1UFQceu0z1qrZM3YASQzXhZnp9rWlDeFT/view?usp=drive_link"
+                              ]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 3
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/images-practice/kasrah": {
+      "get": {
+        "tags": ["Images Practice Questions"],
+        "summary": "mendapatkan soal latihan 3 huruf berharakat kasrah dengan opsi gambar",
+        "description": "Berisi 10 soal latihan 3 (huruf berharakat kasrah)",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Hijaiyah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 1"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 1",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Hijaiyah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Yang manakah huruf \"Syin\"?"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "https://drive.google.com/file/d/1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1qJjXf0Xquqr_ZzyPp4ACx-sgPAdgs0Jx/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1KPL7ecmNcbwEuHi9UyEcHsjNdyHWHBUG/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1UFQceu0z1qrZM3YASQzXhZnp9rWlDeFT/view?usp=drive_link"
+                              ]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 3
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/images-practice/dhammah": {
+      "get": {
+        "tags": ["Images Practice Questions"],
+        "summary": "mendapatkan soal latihan 4 huruf berharakat dhammah dengan opsi gambar",
+        "description": "Berisi 10 soal latihan 4 (huruf berharakat dhammah)",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Hijaiyah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 1"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 1",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Hijaiyah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Yang manakah huruf \"Syin\"?"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "https://drive.google.com/file/d/1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1qJjXf0Xquqr_ZzyPp4ACx-sgPAdgs0Jx/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1KPL7ecmNcbwEuHi9UyEcHsjNdyHWHBUG/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1UFQceu0z1qrZM3YASQzXhZnp9rWlDeFT/view?usp=drive_link"
+                              ]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 3
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
                             }
                           }
                         }
