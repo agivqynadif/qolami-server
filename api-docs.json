@@ -845,48 +845,60 @@
         ],
         "tags": ["User Score"],
         "summary": "Update score user",
-        "description": "Update data score user",
+        "description": "Hapus field yang tidak diperlukan untuk update",
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
                   "scoreHijaiyah.scoreImage": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreHijaiyah.scoreVideo": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreHijaiyah.scoreAudio": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreFathah.scoreImage": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreFathah.scoreVideo": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreFathah.scoreAudio": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreKasrah.scoreImage": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreKasrah.scoreVideo": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreKasrah.scoreAudio": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreDhammah.scoreImage": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreDhammah.scoreVideo": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   },
                   "scoreDhammah.scoreAudio": {
-                    "type": "number"
+                    "type": "number",
+                    "default": null
                   }
                 }
               }

@@ -5,26 +5,7 @@ exports.updateScore = async (req, res) => {
   const updates = req.body;
   const options = { new: true };
   try {
-    const score = await Score.findByIdAndUpdate(
-      userId,
-      {
-        $set: {
-          'scoreHijaiyah.scoreImage': updates.scoreImage,
-          'scoreHijaiyah.scoreVideo': updates.scoreVideo,
-          'scoreHijaiyah.scoreAudio': updates.scoreAudio,
-          'scoreFathah.scoreImage': updates.scoreImage,
-          'scoreFathah.scoreVideo': updates.scoreVideo,
-          'scoreFathah.scoreAudio': updates.scoreAudio,
-          'scoreKasrah.scoreImage': updates.scoreImage,
-          'scoreKasrah.scoreVideo': updates.scoreVideo,
-          'scoreKasrah.scoreAudio': updates.scoreAudio,
-          'scoreDhammah.scoreImage': updates.scoreImage,
-          'scoreDhammah.scoreVideo': updates.scoreVideo,
-          'scoreDhammah.scoreAudio': updates.scoreAudio,
-        },
-      },
-      options
-    );
+    const score = await Score.findOneAndUpdate({ userId: userId }, updates, options);
     res.status(200).json({
       status: 'Sukses',
       message: 'Score berhasil diupdate!',
