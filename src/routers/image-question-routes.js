@@ -2,7 +2,7 @@ const { insertImageQuestion, getLatihanHijaiyah, getLatihanFathah, getLatihanKas
 const express = require('express');
 const router = express.Router();
 
-router.post('/images/insert-question', insertImageQuestion);
+router.post('/images-practice/insert-question', insertImageQuestion);
 router.get('/images-practice/hijaiyah', getLatihanHijaiyah);
 router.get('/images-practice/fathah', getLatihanFathah);
 router.get('/images-practice/kasrah', getLatihanKasrah);

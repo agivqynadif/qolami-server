@@ -1025,6 +1025,100 @@
         }
       }
     },
+    "/images-practice/insert-question": {
+      "post": {
+        "tags": ["Images Practice Questions"],
+        "summary": "Menginput soal latihan ke dalam database",
+        "description": "Endpoint yang digunakan oleh developer untuk menginput soal latihan",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Latihan 1",
+                    "description": "Title latihan yang akan diinput"
+                  },
+                  "subtitle": {
+                    "type": "string",
+                    "example": "Huruf Hijaiyah",
+                    "description": "Materi pelajaran yang akan dilatih"
+                  },
+                  "question": {
+                    "type": "string",
+                    "example": "Yang manakah huruf \"Alif\"?",
+                    "description": "Soal yang ditanyakan"
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": [
+                        "https://drive.google.com/uc?export=view&id=1ZAfZCRv3jjsiIfJnZe6Ju98PJ4jG8qiB",
+                        "https://drive.google.com/uc?export=view&id=1c94X9XfG0XRArKU-m4EwQTItXbM_YF3B",
+                        "https://drive.google.com/uc?export=view&id=1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D",
+                        "https://drive.google.com/uc?export=view&id=1uQ9zcleVcPAe9kfuZ3VqNmfZPlp-4NJ0"
+                      ]
+                    }
+                  },
+                  "correctIndex": {
+                    "type": "number",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Berhasil menambahkan soal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil menambahkan soal!",
+                      "description": "Pesan ketika berhasil menambahkan soal ke dalam database"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/images-practice/hijaiyah": {
       "get": {
         "tags": ["Images Practice Questions"],
