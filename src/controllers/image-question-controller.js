@@ -43,6 +43,7 @@ exports.getLatihanHijaiyah = async (req, res) => {
     });
   }
 };
+
 exports.getLatihanFathah = async (req, res) => {
   try {
     const latihanHijaiyah = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 2' } }, { $sample: { size: 10 } }]);
