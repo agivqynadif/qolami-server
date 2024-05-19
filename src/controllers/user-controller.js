@@ -101,6 +101,8 @@ exports.loginUser = async (req, res) => {
       status: 'Sukses',
       message: 'Login berhasil!',
       data: {
+        _id: user._id,
+        username: user.username,
         token: token,
       },
     });
