@@ -1825,6 +1825,106 @@
           }
         }
       }
+    },
+    "/audios-practice/fathah": {
+      "get": {
+        "tags": ["Audios Practice Questions"],
+        "summary": "Mendapatkan soal latihan 2 huruf fathah dengan tipe audio",
+        "description": "Berisi 10 soal latihan 2 (huruf berharakat fathah)",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 2",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Berharakat Fathah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 2"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 2",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Berharakat Fathah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Huruf apa yang terdengar?"
+                            },
+                            "audio": {
+                              "type": "string",
+                              "example": "https://drive.google.com/uc?export=download&id=1CrPe8DxkGcTIH9vEqSnHb1feEWdf5mQr"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": ["ظَ", "ذَ", "دَ", "َزَ"]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 1
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
