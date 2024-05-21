@@ -215,6 +215,18 @@
                       "type": "object",
                       "description": "Data login user",
                       "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "6649c48700fe6101c67258e0"
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "Fulan"
+                        },
+                        "profileName": {
+                          "type": "string",
+                          "example": "Fulan Fulano"
+                        },
                         "token": {
                           "type": "object",
                           "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWZlYTQxNGJhOGNhYTYwMjQ5YTI3M2UiLCJ1c2VybmFtZSI6InNvZnVuMSIsImlhdCI6MTcxMTI1NDMxNH0.jH8tJTB6F6ljx3uiBaavMR-9jdfrHZgoel4gXA_S4GA"

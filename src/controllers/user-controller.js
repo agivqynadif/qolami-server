@@ -103,6 +103,7 @@ exports.loginUser = async (req, res) => {
       data: {
         _id: user._id,
         username: user.username,
+        profileName: user.profileName,
         token: token,
       },
     });
