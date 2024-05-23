@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/register', verifyRegister.checkDuplicateUsername, registerUser);
 router.post('/login', loginUser);
 router.put('/forgot-password', forgotPassword);
-router.put('/reset-password', resetPassword);
+router.put('/reset-password/:id', resetPassword);
 router.patch('/profile-name/:id', changeProfileName);
 router.get('/:id', getUserById);
 router.get('/users', getUser);

@@ -151,10 +151,11 @@ exports.forgotPassword = async (req, res) => {
 };
 
 exports.resetPassword = async (req, res) => {
-  const { username, newPassword, repeatNewPassword } = req.body;
+  const id = req.params.id;
+  const { newPassword, repeatNewPassword } = req.body;
 
   try {
-    let user = await User.findOne({ username });
+    let user = await User.findById({ _id: id });
     if (!user) {
       return res.status(404).json({
         status: 'Sukses',
@@ -169,7 +170,7 @@ exports.resetPassword = async (req, res) => {
       });
     }
 
-    user = await User.updateOne({ username }, { $set: { password: bcrypt.hashSync(newPassword, Number(bcryptSalt)) } });
+    user = await User.updateOne({ _id: id }, { $set: { password: bcrypt.hashSync(newPassword, Number(bcryptSalt)) } });
 
     res.status(200).json({
       status: 'Sukses',

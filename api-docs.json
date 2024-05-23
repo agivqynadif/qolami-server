@@ -425,8 +425,18 @@
         }
       }
     },
-    "/user/reset-password": {
+    "/user/reset-password/{id}": {
       "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "tags": ["User"],
         "summary": "Ubah password baru untuk user",
         "description": "User dapat mengganti password akun",
@@ -437,11 +447,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "username": {
-                    "type": "string",
-                    "example": "sofun1",
-                    "description": "Username yang digunakan user"
-                  },
                   "newPassword": {
                     "type": "string",
                     "example": "sofun12345",
