@@ -154,23 +154,26 @@ exports.resetPassword = async (req, res) => {
   const id = req.params.id;
   const { newPassword, repeatNewPassword } = req.body;
 
+  if (newPassword !== repeatNewPassword) {
+    return res.status(401).json({
+      status: 'Gagal',
+      messager: 'Password tidak sama!',
+    });
+  }
+
   try {
-    let user = await User.findById({ _id: id });
+    const hashedPassword = await bcrypt.hashSync(newPassword, Number(bcryptSalt));
+    let user = await User.findById(id);
+
     if (!user) {
       return res.status(404).json({
         status: 'Sukses',
-        message: 'Username tidak ditemukan!',
+        message: 'User tidak ditemukan!',
       });
     }
 
-    if (newPassword !== repeatNewPassword) {
-      return res.status(401).json({
-        status: 'Gagal',
-        messager: 'Password tidak sama!',
-      });
-    }
-
-    user = await User.updateOne({ _id: id }, { $set: { password: bcrypt.hashSync(newPassword, Number(bcryptSalt)) } });
+    user.password = hashedPassword;
+    await user.save();
 
     res.status(200).json({
       status: 'Sukses',
