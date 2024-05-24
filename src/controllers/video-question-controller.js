@@ -26,6 +26,25 @@ exports.insertVideoQuestion = async (req, res) => {
   }
 };
 
+exports.getLatihanHijaiyahVideo = async (req, res) => {
+  try {
+    const latihanHijaiyahVideo = await VideoQuestion.aggregate([{ $match: { title: 'Latihan 1' } }, { $sample: { size: 10 } }]);
+    res.status(200).json({
+      status: 'Sukses',
+      message: 'Berhasil mendapatkan soal latihan Huruf Hijaiyah!',
+      data: {
+        latihanHijaiyahVideo,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      status: 'Error',
+      message: 'Terjadi error pada server',
+    });
+  }
+};
+
 exports.getLatihanFathahVideo = async (req, res) => {
   try {
     const latihanFathahVideo = await VideoQuestion.aggregate([{ $match: { title: 'Latihan 2' } }, { $sample: { size: 10 } }]);

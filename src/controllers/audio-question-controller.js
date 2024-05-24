@@ -26,14 +26,71 @@ exports.insertAudioQuestion = async (req, res) => {
   }
 };
 
+exports.getLatihanHijaiyahAudio = async (req, res) => {
+  try {
+    const latihanHijaiyahAudio = await AudioQuestion.aggregate([{ $match: { title: 'Latihan 1' } }, { $sample: { size: 10 } }]);
+    res.status(200).json({
+      status: 'Sukses',
+      message: 'Berhasil mendapatkan soal latihan Huruf Hijaiyah!',
+      data: {
+        latihanHijaiyahAudio,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      status: 'Error',
+      message: 'Terjadi error pada server',
+    });
+  }
+};
+
 exports.getLatihanFathahAudio = async (req, res) => {
   try {
-    const latihanFathahVideo = await AudioQuestion.aggregate([{ $match: { title: 'Latihan 2' } }, { $sample: { size: 10 } }]);
+    const latihanFathahAudio = await AudioQuestion.aggregate([{ $match: { title: 'Latihan 2' } }, { $sample: { size: 10 } }]);
     res.status(200).json({
       status: 'Sukses',
       message: 'Berhasil mendapatkan soal latihan Huruf Berharakat Fathah!',
       data: {
-        latihanFathahVideo,
+        latihanFathahAudio,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      status: 'Error',
+      message: 'Terjadi error pada server',
+    });
+  }
+};
+
+exports.getLatihanKasrahAudio = async (req, res) => {
+  try {
+    const latihanKasrahAudio = await AudioQuestion.aggregate([{ $match: { title: 'Latihan 3' } }, { $sample: { size: 10 } }]);
+    res.status(200).json({
+      status: 'Sukses',
+      message: 'Berhasil mendapatkan soal latihan Huruf Berharakat Kasrah!',
+      data: {
+        latihanKasrahAudio,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      status: 'Error',
+      message: 'Terjadi error pada server',
+    });
+  }
+};
+
+exports.getLatihanDhammahAudio = async (req, res) => {
+  try {
+    const latihanDhammahAudio = await AudioQuestion.aggregate([{ $match: { title: 'Latihan 4' } }, { $sample: { size: 10 } }]);
+    res.status(200).json({
+      status: 'Sukses',
+      message: 'Berhasil mendapatkan soal latihan Huruf Berharakat Dhammah!',
+      data: {
+        latihanDhammahAudio,
       },
     });
   } catch (error) {

@@ -1045,7 +1045,7 @@
     "/images-practice/insert-question": {
       "post": {
         "tags": ["Images Practice Questions"],
-        "summary": "Menginput soal latihan ke dalam database",
+        "summary": "Menginput soal latihan dengan opsi jawaban gambar ke dalam database",
         "description": "Endpoint yang digunakan oleh developer untuk menginput soal latihan",
         "requestBody": {
           "required": true,
@@ -1139,7 +1139,7 @@
     "/images-practice/hijaiyah": {
       "get": {
         "tags": ["Images Practice Questions"],
-        "summary": "Mendapatkan soal latihan 1 huruf hijaiyah dengan opsi gambar",
+        "summary": "Mendapatkan soal latihan huruf hijaiyah dengan opsi jawaban gambar",
         "description": "Berisi 10 soal latihan 1 (huruf hijaiyah)",
         "responses": {
           "200": {
@@ -1240,7 +1240,7 @@
     "/images-practice/fathah": {
       "get": {
         "tags": ["Images Practice Questions"],
-        "summary": "Mendapatkan soal latihan 2 huruf berharakat fathah dengan opsi gambar",
+        "summary": "Mendapatkan soal latihan huruf berharakat fathah dengan opsi jawaban gambar",
         "description": "Berisi 10 soal latihan 2 (huruf berharakat fathah)",
         "responses": {
           "200": {
@@ -1341,7 +1341,7 @@
     "/images-practice/kasrah": {
       "get": {
         "tags": ["Images Practice Questions"],
-        "summary": "Mendapatkan soal latihan 3 huruf berharakat kasrah dengan opsi gambar",
+        "summary": "Mendapatkan soal latihan huruf berharakat kasrah dengan opsi jawaban gambar",
         "description": "Berisi 10 soal latihan 3 (huruf berharakat kasrah)",
         "responses": {
           "200": {
@@ -1442,8 +1442,203 @@
     "/images-practice/dhammah": {
       "get": {
         "tags": ["Images Practice Questions"],
-        "summary": "Mendapatkan soal latihan 4 huruf berharakat dhammah dengan opsi gambar",
+        "summary": "Mendapatkan soal latihan huruf berharakat dhammah dengan opsi jawaban gambar",
         "description": "Berisi 10 soal latihan 4 (huruf berharakat dhammah)",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Hijaiyah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 1"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 1",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Hijaiyah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Yang manakah huruf \"Syin\"?"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "https://drive.google.com/file/d/1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1qJjXf0Xquqr_ZzyPp4ACx-sgPAdgs0Jx/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1KPL7ecmNcbwEuHi9UyEcHsjNdyHWHBUG/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1UFQceu0z1qrZM3YASQzXhZnp9rWlDeFT/view?usp=drive_link"
+                              ]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 3
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/videos-practice/insert-question": {
+      "post": {
+        "tags": ["Videos Practice Questions"],
+        "summary": "Menginput soal latihan video ke dalam database",
+        "description": "Endpoint yang digunakan oleh developer untuk menginput soal latihan video",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Latihan 1",
+                    "description": "Title latihan yang akan diinput"
+                  },
+                  "subtitle": {
+                    "type": "string",
+                    "example": "Huruf Hijaiyah",
+                    "description": "Materi pelajaran yang akan dilatih"
+                  },
+                  "question": {
+                    "type": "string",
+                    "example": "Yang manakah huruf \"Alif\"?",
+                    "description": "Soal yang ditanyakan"
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": [
+                        "https://drive.google.com/uc?export=view&id=1ZAfZCRv3jjsiIfJnZe6Ju98PJ4jG8qiB",
+                        "https://drive.google.com/uc?export=view&id=1c94X9XfG0XRArKU-m4EwQTItXbM_YF3B",
+                        "https://drive.google.com/uc?export=view&id=1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D",
+                        "https://drive.google.com/uc?export=view&id=1uQ9zcleVcPAe9kfuZ3VqNmfZPlp-4NJ0"
+                      ]
+                    }
+                  },
+                  "correctIndex": {
+                    "type": "number",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Berhasil menambahkan soal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil menambahkan soal!",
+                      "description": "Pesan ketika berhasil menambahkan soal ke dalam database"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/videos-practice/hijaiyah": {
+      "get": {
+        "tags": ["Videos Practice Questions"],
+        "summary": "Mendapatkan soal latihan huruf hijaiyah dengan tipe video",
+        "description": "Berisi 10 soal latihan 1 (huruf hijaiyah)",
         "responses": {
           "200": {
             "description": "Berhasil mendapatkan data soal latihan 1",
@@ -1543,7 +1738,7 @@
     "/videos-practice/fathah": {
       "get": {
         "tags": ["Videos Practice Questions"],
-        "summary": "Mendapatkan soal latihan 2 huruf berharakat fathah dengan soal video",
+        "summary": "Mendapatkan soal latihan huruf berharakat fathah dengan tipe video",
         "description": "Berisi 10 soal latihan 2 (huruf berharakat fathah)",
         "responses": {
           "200": {
@@ -1644,7 +1839,7 @@
     "/videos-practice/kasrah": {
       "get": {
         "tags": ["Videos Practice Questions"],
-        "summary": "Mendapatkan soal latihan 3 huruf berharakat kasrah dengan soal video",
+        "summary": "Mendapatkan soal latihan huruf berharakat kasrah dengan tipe video",
         "description": "Berisi 10 soal latihan 3 (huruf berharakat kasrah)",
         "responses": {
           "200": {
@@ -1745,7 +1940,7 @@
     "/videos-practice/dhammah": {
       "get": {
         "tags": ["Videos Practice Questions"],
-        "summary": "Mendapatkan soal latihan 4 huruf berharakat dhammah dengan soal video",
+        "summary": "Mendapatkan soal latihan huruf berharakat dhammah dengan tipe video",
         "description": "Berisi 10 soal latihan 4 (huruf berharakat dhammah)",
         "responses": {
           "200": {
@@ -1843,14 +2038,409 @@
         }
       }
     },
+    "/audios-practice/insert-question": {
+      "post": {
+        "tags": ["Audios Practice Questions"],
+        "summary": "Menginput soal latihan audio ke dalam database",
+        "description": "Endpoint yang digunakan oleh developer untuk menginput soal latihan audio",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Latihan 1",
+                    "description": "Title latihan yang akan diinput"
+                  },
+                  "subtitle": {
+                    "type": "string",
+                    "example": "Huruf Hijaiyah",
+                    "description": "Materi pelajaran yang akan dilatih"
+                  },
+                  "question": {
+                    "type": "string",
+                    "example": "Yang manakah huruf \"Alif\"?",
+                    "description": "Soal yang ditanyakan"
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "example": [
+                        "https://drive.google.com/uc?export=view&id=1ZAfZCRv3jjsiIfJnZe6Ju98PJ4jG8qiB",
+                        "https://drive.google.com/uc?export=view&id=1c94X9XfG0XRArKU-m4EwQTItXbM_YF3B",
+                        "https://drive.google.com/uc?export=view&id=1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D",
+                        "https://drive.google.com/uc?export=view&id=1uQ9zcleVcPAe9kfuZ3VqNmfZPlp-4NJ0"
+                      ]
+                    }
+                  },
+                  "correctIndex": {
+                    "type": "number",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Berhasil menambahkan soal",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil menambahkan soal!",
+                      "description": "Pesan ketika berhasil menambahkan soal ke dalam database"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audios-practice/hijaiyah": {
+      "get": {
+        "tags": ["Audios Practice Questions"],
+        "summary": "Mendapatkan soal latihan huruf hijaiyah dengan tipe audio",
+        "description": "Berisi 10 soal latihan 1 (huruf hijaiyah)",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Hijaiyah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 1"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 1",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Hijaiyah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Yang manakah huruf \"Syin\"?"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": [
+                                "https://drive.google.com/file/d/1wjAWP-iS2K2j6RiI7gzEKiiBwwko3c4D/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1qJjXf0Xquqr_ZzyPp4ACx-sgPAdgs0Jx/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1KPL7ecmNcbwEuHi9UyEcHsjNdyHWHBUG/view?usp=drive_link",
+                                "https://drive.google.com/file/d/1UFQceu0z1qrZM3YASQzXhZnp9rWlDeFT/view?usp=drive_link"
+                              ]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 3
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/audios-practice/fathah": {
       "get": {
         "tags": ["Audios Practice Questions"],
-        "summary": "Mendapatkan soal latihan 2 huruf fathah dengan tipe audio",
+        "summary": "Mendapatkan soal latihan huruf berharakat fathah dengan tipe audio",
         "description": "Berisi 10 soal latihan 2 (huruf berharakat fathah)",
         "responses": {
           "200": {
             "description": "Berhasil mendapatkan data soal latihan 2",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Berharakat Fathah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 2"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 2",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Berharakat Fathah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Huruf apa yang terdengar?"
+                            },
+                            "audio": {
+                              "type": "string",
+                              "example": "https://drive.google.com/uc?export=download&id=1CrPe8DxkGcTIH9vEqSnHb1feEWdf5mQr"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": ["ظَ", "ذَ", "دَ", "َزَ"]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 1
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audios-practice/kasrah": {
+      "get": {
+        "tags": ["Audios Practice Questions"],
+        "summary": "Mendapatkan soal latihan huruf kasrah dengan tipe audio",
+        "description": "Berisi 10 soal latihan huruf berharakat kasrah",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 2",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Sukses"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Berhasil mendapatkan soal latihan Huruf Berharakat Fathah!",
+                      "description": "Pesan ketika berhasil mendapatkan data soal latihan 2"
+                    },
+                    "data": {
+                      "type": "object",
+                      "description": "Data soal latihan 2",
+                      "properties": {
+                        "latihanHijaiyah": {
+                          "type": "array",
+                          "items": {
+                            "type": "object"
+                          },
+                          "properties": {
+                            "_id": {
+                              "type": "object",
+                              "example": "663a66f2439373d210c17c92"
+                            },
+                            "title": {
+                              "type": "string",
+                              "example": "Latihan 1"
+                            },
+                            "subtitle": {
+                              "type": "string",
+                              "example": "Huruf Berharakat Fathah"
+                            },
+                            "question": {
+                              "type": "string",
+                              "example": "Huruf apa yang terdengar?"
+                            },
+                            "audio": {
+                              "type": "string",
+                              "example": "https://drive.google.com/uc?export=download&id=1CrPe8DxkGcTIH9vEqSnHb1feEWdf5mQr"
+                            },
+                            "options": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "example": ["ظَ", "ذَ", "دَ", "َزَ"]
+                            },
+                            "correctIndex": {
+                              "type": "number",
+                              "example": 1
+                            },
+                            "__v": {
+                              "type": "number",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error pada server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Error"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Terjadi error pada server",
+                      "description": "Pesan error karena terjadi error pada server"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audios-practice/dhammah": {
+      "get": {
+        "tags": ["Audios Practice Questions"],
+        "summary": "Mendapatkan soal latihan huruf berharakat dhammah dengan tipe audio",
+        "description": "Berisi 10 soal latihan huruf berharakat dhammah",
+        "responses": {
+          "200": {
+            "description": "Berhasil mendapatkan data soal latihan 4",
             "content": {
               "application/json": {
                 "schema": {
