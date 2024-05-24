@@ -157,7 +157,7 @@ exports.resetPassword = async (req, res) => {
   if (newPassword !== repeatNewPassword) {
     return res.status(401).json({
       status: 'Gagal',
-      messager: 'Password tidak sama!',
+      message: 'Password tidak sama!',
     });
   }
 
@@ -196,7 +196,7 @@ exports.changeProfileName = async (req, res) => {
     const user = await User.findByIdAndUpdate(id, profileName, options);
     res.status(200).json({
       status: 'Sukses',
-      message: 'Profie name berhasil diupdate!',
+      message: 'Profie name berhasil diubah!',
     });
   } catch (error) {
     console.error(error);
