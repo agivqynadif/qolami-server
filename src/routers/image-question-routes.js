@@ -1,11 +1,11 @@
-const { insertImageQuestion, getLatihanHijaiyah, getLatihanFathah, getLatihanKasrah, getLatihanDhammah } = require('../controllers/image-question-controller');
+const { insertImageQuestion, getLatihanHijaiyahImage, getLatihanFathahImage, getLatihanKasrahImage, getLatihanDhammahImage } = require('../controllers/image-question-controller');
 const express = require('express');
 const router = express.Router();
 
 router.post('/images-practice/insert-question', insertImageQuestion);
-router.get('/images-practice/hijaiyah', getLatihanHijaiyah);
-router.get('/images-practice/fathah', getLatihanFathah);
-router.get('/images-practice/kasrah', getLatihanKasrah);
-router.get('/images-practice/dhammah', getLatihanDhammah);
+router.get('/images-practice/hijaiyah', getLatihanHijaiyahImage);
+router.get('/images-practice/fathah', getLatihanFathahImage);
+router.get('/images-practice/kasrah', getLatihanKasrahImage);
+router.get('/images-practice/dhammah', getLatihanDhammahImage);
 
 module.exports = router;

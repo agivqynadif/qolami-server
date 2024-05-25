@@ -25,14 +25,14 @@ exports.insertImageQuestion = async (req, res) => {
   }
 };
 
-exports.getLatihanHijaiyah = async (req, res) => {
+exports.getLatihanHijaiyahImage = async (req, res) => {
   try {
-    const latihanHijaiyah = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 1' } }, { $sample: { size: 10 } }]);
+    const latihanHijaiyahImage = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 1' } }, { $sample: { size: 10 } }]);
     res.status(200).json({
       status: 'Sukses',
       message: 'Berhasil mendapatkan soal latihan Huruf Hijaiyah!',
       data: {
-        latihanHijaiyah,
+        latihanHijaiyahImage,
       },
     });
   } catch (error) {
@@ -44,14 +44,14 @@ exports.getLatihanHijaiyah = async (req, res) => {
   }
 };
 
-exports.getLatihanFathah = async (req, res) => {
+exports.getLatihanFathahImage = async (req, res) => {
   try {
-    const latihanHijaiyah = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 2' } }, { $sample: { size: 10 } }]);
+    const latihanFathahImage = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 2' } }, { $sample: { size: 10 } }]);
     res.status(200).json({
       status: 'Sukses',
       message: 'Berhasil mendapatkan soal latihan Huruf Berharakat fathah!',
       data: {
-        latihanHijaiyah,
+        latihanFathahImage,
       },
     });
   } catch (error) {
@@ -63,14 +63,14 @@ exports.getLatihanFathah = async (req, res) => {
   }
 };
 
-exports.getLatihanKasrah = async (req, res) => {
+exports.getLatihanKasrahImage = async (req, res) => {
   try {
-    const latihanHijaiyah = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 3' } }, { $sample: { size: 10 } }]);
+    const latihanKasrahImage = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 3' } }, { $sample: { size: 10 } }]);
     res.status(200).json({
       status: 'Sukses',
       message: 'Berhasil mendapatkan soal latihan Huruf Berharakat Kasrah!',
       data: {
-        latihanHijaiyah,
+        latihanKasrahImage,
       },
     });
   } catch (error) {
@@ -82,14 +82,14 @@ exports.getLatihanKasrah = async (req, res) => {
   }
 };
 
-exports.getLatihanDhammah = async (req, res) => {
+exports.getLatihanDhammahImage = async (req, res) => {
   try {
-    const latihanHijaiyah = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 4' } }, { $sample: { size: 10 } }]);
+    const latihanDhammahImage = await ImageQuestion.aggregate([{ $match: { title: 'Latihan 4' } }, { $sample: { size: 10 } }]);
     res.status(200).json({
       status: 'Sukses',
       message: 'Berhasil mendapatkan soal latihan Huruf Berharakat Dhammah!',
       data: {
-        latihanHijaiyah,
+        latihanDhammahImage,
       },
     });
   } catch (error) {

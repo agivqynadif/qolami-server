@@ -17,7 +17,7 @@
     "/auth/register": {
       "post": {
         "tags": ["Auth"],
-        "summary": "Register pengguna baru",
+        "summary": "Register user baru",
         "description": "User melakukan register dengan username dan password",
         "requestBody": {
           "required": true,
@@ -438,7 +438,7 @@
           }
         ],
         "tags": ["User"],
-        "summary": "Ubah password baru untuk user",
+        "summary": "Mengubah password lama user",
         "description": "User dapat mengganti password akun",
         "requestBody": {
           "required": true,
@@ -675,7 +675,7 @@
           }
         ],
         "tags": ["User"],
-        "summary": "Ubah nama profile user",
+        "summary": "Mengubah nama profil user",
         "description": "User dapat mengganti profile name sesuai keinginan",
         "requestBody": {
           "required": true,
@@ -861,7 +861,7 @@
           }
         ],
         "tags": ["User Score"],
-        "summary": "Update score user",
+        "summary": "Mengubah score user",
         "description": "Hapus field yang tidak diperlukan untuk update",
         "requestBody": {
           "content": {
@@ -1045,7 +1045,7 @@
     "/images-practice/insert-question": {
       "post": {
         "tags": ["Images Practice Questions"],
-        "summary": "Menginput soal latihan dengan opsi jawaban gambar ke dalam database",
+        "summary": "Menginput soal latihan dengan opsi jawaban gambar",
         "description": "Endpoint yang digunakan oleh developer untuk menginput soal latihan",
         "requestBody": {
           "required": true,
@@ -1543,7 +1543,7 @@
     "/videos-practice/insert-question": {
       "post": {
         "tags": ["Videos Practice Questions"],
-        "summary": "Menginput soal latihan video ke dalam database",
+        "summary": "Menginput soal latihan video",
         "description": "Endpoint yang digunakan oleh developer untuk menginput soal latihan video",
         "requestBody": {
           "required": true,
@@ -2041,7 +2041,7 @@
     "/audios-practice/insert-question": {
       "post": {
         "tags": ["Audios Practice Questions"],
-        "summary": "Menginput soal latihan audio ke dalam database",
+        "summary": "Menginput soal latihan audio",
         "description": "Endpoint yang digunakan oleh developer untuk menginput soal latihan audio",
         "requestBody": {
           "required": true,
