@@ -506,27 +506,6 @@
               }
             }
           },
-          "404": {
-            "description": "Username tidak ditemukan",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "example": "Gagal"
-                    },
-                    "message": {
-                      "type": "string",
-                      "example": "Username tidak ditemukan!",
-                      "description": "Pesan error karena username tidak ditemukan"
-                    }
-                  }
-                }
-              }
-            }
-          },
           "500": {
             "description": "Error pada server",
             "content": {
