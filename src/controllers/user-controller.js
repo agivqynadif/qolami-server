@@ -165,13 +165,6 @@ exports.resetPassword = async (req, res) => {
     const hashedPassword = await bcrypt.hashSync(newPassword, Number(bcryptSalt));
     let user = await User.findById(id);
 
-    if (!user) {
-      return res.status(404).json({
-        status: 'Sukses',
-        message: 'User tidak ditemukan!',
-      });
-    }
-
     user.password = hashedPassword;
     await user.save();
 
