@@ -28,7 +28,28 @@ exports.getScore = async (req, res) => {
       status: 'Sukses',
       message: 'Berhasil mendapatkan data score user!',
       data: {
-        score,
+        score: {
+          scoreHijaiyah: {
+            scoreImage: score.scoreHijaiyahImage,
+            scoreVideo: score.scoreHijaiyahVideo,
+            scoreAudio: score.scoreHijaiyahAudio,
+          },
+          scoreFathah: {
+            scoreImage: score.scoreFathahImage,
+            scoreVideo: score.scoreFathahVideo,
+            scoreAudio: score.scoreFathahAudio,
+          },
+          scoreKasrah: {
+            scoreImage: score.scoreKasrahImage,
+            scoreVideo: score.scoreKasrahVideo,
+            scoreAudio: score.scoreKasrahAudio,
+          },
+          scoreDhammah: {
+            scoreImage: score.scoreDhammahImage,
+            scoreVideo: score.scoreDhammahVideo,
+            scoreAudio: score.scoreDhammahhAudio,
+          },
+        },
       },
     });
   } catch (error) {
