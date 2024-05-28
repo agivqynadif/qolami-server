@@ -848,53 +848,53 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "scoreHijaiyah.scoreImage": {
+                  "scoreHijaiyahImage": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreHijaiyah.scoreVideo": {
+                  "scoreHijaiyahVideo": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreHijaiyah.scoreAudio": {
+                  "scoreHijaiyahAudio": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreFathah.scoreImage": {
+                  "scoreFathahImage": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreFathah.scoreVideo": {
+                  "scoreFathahVideo": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreFathah.scoreAudio": {
+                  "scoreFathahAudio": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreKasrah.scoreImage": {
+                  "scoreKasrahImage": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreKasrah.scoreVideo": {
+                  "scoreKasrahVideo": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreKasrah.scoreAudio": {
+                  "scoreKasrahAudio": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreDhammah.scoreImage": {
+                  "scoreDhammahImage": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreDhammah.scoreVideo": {
+                  "scoreDhammahVideo": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   },
-                  "scoreDhammah.scoreAudio": {
+                  "scoreDhammahAudio": {
                     "type": "number",
-                    "default": null
+                    "default": 0
                   }
                 }
               }

@@ -23,7 +23,7 @@ exports.updateScore = async (req, res) => {
 exports.getScore = async (req, res) => {
   const userId = req.params.userId;
   try {
-    const score = await Score.findOne({ userId }).populate('userId', 'username');
+    const score = await Score.findOne({ userId });
     res.status(200).json({
       status: 'Sukses',
       message: 'Berhasil mendapatkan data score user!',

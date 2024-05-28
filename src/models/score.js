@@ -5,61 +5,53 @@ const scoreSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
-  scoreHijaiyah: {
-    scoreImage: {
-      type: Number,
-      default: null,
-    },
-    scoreVideo: {
-      type: Number,
-      default: null,
-    },
-    scoreAudio: {
-      type: Number,
-      default: null,
-    },
+  scoreHijaiyahImage: {
+    type: Number,
+    default: null,
   },
-  scoreFathah: {
-    scoreImage: {
-      type: Number,
-      default: null,
-    },
-    scoreVideo: {
-      type: Number,
-      default: null,
-    },
-    scoreAudio: {
-      type: Number,
-      default: null,
-    },
+  scoreHijaiyahVideo: {
+    type: Number,
+    default: null,
   },
-  scoreKasrah: {
-    scoreImage: {
-      type: Number,
-      default: null,
-    },
-    scoreVideo: {
-      type: Number,
-      default: null,
-    },
-    scoreAudio: {
-      type: Number,
-      default: null,
-    },
+  scoreHijaiyahAudio: {
+    type: Number,
+    default: null,
   },
-  scoreDhammah: {
-    scoreImage: {
-      type: Number,
-      default: null,
-    },
-    scoreVideo: {
-      type: Number,
-      default: null,
-    },
-    scoreAudio: {
-      type: Number,
-      default: null,
-    },
+  scoreFathahImage: {
+    type: Number,
+    default: null,
+  },
+  scoreFathahVideo: {
+    type: Number,
+    default: null,
+  },
+  scoreFathahAudio: {
+    type: Number,
+    default: null,
+  },
+  scoreKasrahImage: {
+    type: Number,
+    default: null,
+  },
+  scoreKasrahVideo: {
+    type: Number,
+    default: null,
+  },
+  scoreKasrahAudio: {
+    type: Number,
+    default: null,
+  },
+  scoreDhammahImage: {
+    type: Number,
+    default: null,
+  },
+  scoreDhammahVideo: {
+    type: Number,
+    default: null,
+  },
+  scoreDhammahAudio: {
+    type: Number,
+    default: null,
   },
 });
 
