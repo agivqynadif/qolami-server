@@ -8,57 +8,57 @@ const scoreSchema = mongoose.Schema({
   scoreHijaiyah: {
     scoreImage: {
       type: Number,
-      default: 0,
+      default: null,
     },
     scoreVideo: {
       type: Number,
-      default: 0,
+      default: null,
     },
     scoreAudio: {
       type: Number,
-      default: 0,
+      default: null,
     },
   },
   scoreFathah: {
     scoreImage: {
       type: Number,
-      default: 0,
+      default: null,
     },
     scoreVideo: {
       type: Number,
-      default: 0,
+      default: null,
     },
     scoreAudio: {
       type: Number,
-      default: 0,
+      default: null,
     },
   },
   scoreKasrah: {
     scoreImage: {
       type: Number,
-      default: 0,
+      default: null,
     },
     scoreVideo: {
       type: Number,
-      default: 0,
+      default: null,
     },
     scoreAudio: {
       type: Number,
-      default: 0,
+      default: null,
     },
   },
   scoreDhammah: {
     scoreImage: {
       type: Number,
-      default: 0,
+      default: null,
     },
     scoreVideo: {
       type: Number,
-      default: 0,
+      default: null,
     },
     scoreAudio: {
       type: Number,
-      default: 0,
+      default: null,
     },
   },
 });

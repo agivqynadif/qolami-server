@@ -5,10 +5,10 @@ exports.updateScore = async (req, res) => {
   const updates = req.body;
   const options = { new: true };
   try {
-    const score = await Score.findOneAndUpdate({ userId: userId }, updates, options);
+    const score = await Score.findOneAndUpdate({ userId: userId }, { $set: updates }, options);
     res.status(200).json({
       status: 'Sukses',
-      message: 'Score berhasil diupdate!',
+      message: 'Score berhasil diubah!',
       data: score,
     });
   } catch (error) {

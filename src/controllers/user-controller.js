@@ -33,19 +33,19 @@ exports.registerUser = async (req, res) => {
     let score = new Score({
       userId: user._id,
       scoreHijaiyah: {
-        scoreImage: 0,
-        scoreVideo: 0,
-        scoreAudio: 0,
+        scoreImage: null,
+        scoreVideo: null,
+        scoreAudio: null,
       },
       scoreFathah: {
-        scoreImage: 0,
-        scoreVideo: 0,
-        scoreAudio: 0,
+        scoreImage: null,
+        scoreVideo: null,
+        scoreAudio: null,
       },
       scoreKasrah: {
-        scoreImage: 0,
-        scoreVideo: 0,
-        scoreAudio: 0,
+        scoreImage: null,
+        scoreVideo: null,
+        scoreAudio: null,
       },
       scoreDhammah: {
         scoreImage: 0,
