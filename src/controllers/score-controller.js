@@ -47,7 +47,7 @@ exports.getScore = async (req, res) => {
           scoreDhammah: {
             scoreImage: score.scoreDhammahImage,
             scoreVideo: score.scoreDhammahVideo,
-            scoreAudio: score.scoreDhammahhAudio,
+            scoreAudio: score.scoreDhammahAudio,
           },
         },
       },

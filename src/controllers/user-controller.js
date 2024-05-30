@@ -48,9 +48,9 @@ exports.registerUser = async (req, res) => {
         scoreAudio: null,
       },
       scoreDhammah: {
-        scoreImage: 0,
-        scoreVideo: 0,
-        scoreAudio: 0,
+        scoreImage: null,
+        scoreVideo: null,
+        scoreAudio: null,
       },
     });
     await Score.create(score);
