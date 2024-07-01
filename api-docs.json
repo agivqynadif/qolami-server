@@ -7,6 +7,9 @@
   },
   "servers": [
     {
+      "url": "https://qolami-api-server-production.up.railway.app/api/v1"
+    },
+    {
       "url": "https://qolami-server-production.up.railway.app/api/v1"
     },
     {
